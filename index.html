@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cache Hit: 100-level memory game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <!-- Title screen -->
+  <section id="home" class="home">
+    <div class="deco" aria-hidden="true">
+      <i style="--x:8%;--y:12%;--h:200;--rot:-14deg;--d:0s">💻</i>
+      <i style="--x:78%;--y:9%;--h:320;--rot:12deg;--d:-1s">🚀</i>
+      <i style="--x:5%;--y:66%;--h:140;--rot:10deg;--d:-2s">🐛</i>
+      <i style="--x:80%;--y:62%;--h:40;--rot:-10deg;--d:-3s">🤖</i>
+      <i style="--x:88%;--y:36%;--h:260;--rot:6deg;--d:-1.5s">🧠</i>
+    </div>
+    <div class="home-inner">
+      <h1 class="logo">Cache<br>Hit</h1>
+      <p class="tag">Remember the cards, score a hit. Can you reach level 100?</p>
+      <p class="stat" id="homeInfo"></p>
+      <button id="play" type="button" class="btn big">Play</button>
+      <button id="openSettings" type="button" class="btn ghost">Settings</button>
+    </div>
+  </section>
+
+  <!-- Game -->
+  <main class="app" hidden>
+    <header class="hud">
+      <p class="brand">Cache Hit</p>
+      <div class="stats">
+        <p class="stat"><span>Level</span><b id="level">1</b><small>/ 100</small></p>
+        <p class="stat"><span>Moves</span><b id="moves">0</b></p>
+        <p class="stat"><span>Time</span><b id="time">0:00</b></p>
+        <p class="stat"><span>Stars</span><b id="stars">0</b></p>
+      </div>
+      <div class="track" aria-hidden="true"><div id="bar"></div></div>
+    </header>
+
+    <p id="msg" class="msg" aria-live="polite"></p>
+    <section id="board" class="board" aria-label="Cards"></section>
+
+    <footer class="tools">
+      <button id="restart" type="button" class="btn">Restart level</button>
+      <button id="gameSettings" type="button" class="btn ghost">Settings</button>
+      <button id="menu" type="button" class="btn ghost">Menu</button>
+    </footer>
+  </main>
+
+  <div id="fx" class="fx" aria-hidden="true"></div>
+
+  <!-- Level complete, out of moves, trophy -->
+  <div id="overlay" class="overlay" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="ptitle">
+      <div id="part" class="art"></div>
+      <h2 id="ptitle"></h2>
+      <p id="ptext"></p>
+      <button id="pbtn" type="button" class="btn big"></button>
+    </div>
+  </div>
+
+  <!-- Settings -->
+  <div id="settings" class="overlay" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="stitle">
+      <h2 id="stitle">Settings</h2>
+      <label class="row"><span>Sound effects</span><input id="optSfx" type="checkbox" role="switch"></label>
+      <label class="row"><span>Music</span><input id="optMusic" type="checkbox" role="switch"></label>
+      <label class="row"><span>Volume</span><input id="optVol" type="range" min="0" max="100"></label>
+      <button id="optReset" type="button" class="btn ghost">Reset progress</button>
+      <button id="closeSettings" type="button" class="btn big">Done</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
